@@ -10,7 +10,7 @@
     class InstanceApiClient {
         const BASE_URI = "https://instances.social/api/";
         protected Client $client;
-        private $requestHeaders = [
+        private array $requestHeaders = [
             'Authorization' => null
         ];
 
@@ -35,7 +35,9 @@
          */
         public function listInstances(array $filters = [])
         {
-            $req = new Request('GET', '1.0/instances/list', $this->requestHeaders);
+            $req = new Request('GET', '1.0/instances/list', [
+                'headers' => $this->requestHeaders
+            ]);
             $res = $this->client->send($req);
             return json_decode($res->getBody()->getContents());
         }
@@ -53,7 +55,7 @@
 
         private function setBearer(string $token)
         {
-            $this->headers['Authorization'] = sprintf('Bearer %s', $token);
+            $this->requestHeaders['Authorization'] = sprintf('Bearer %s', $token);
         }
 
     }
