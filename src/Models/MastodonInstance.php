@@ -10,16 +10,22 @@
 
         public ?string $name;
 
-        public int $open_registrations = 0;
+        public bool $open_registrations = false;
 
         public ?string $version;
 
-        public ?string $ipv6;
+        public bool $up = false;
+        public bool $dead = false;
+
+        public bool $ipv6 = false;
 
         public float $uptime = 0.0;
 
-        public ?string $https_score;
-        public ?string $obs_score;
+        public int $https_score = 0;
+        public ?string $https_rank;
+        public int $obs_score = 0;
+
+        public ?string $obs_rank;
         public int $users = 0;
         public int $statuses = 0;
         public int $connections = 0;
