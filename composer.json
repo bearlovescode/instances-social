@@ -1,0 +1,16 @@
+{
+    "name": "bearlovescode/instances-social-client",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Bearlovescode\\InstancesSocialClient\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Nic Barr",
+            "email": "1134853+theothernic@users.noreply.github.com"
+        }
+    ],
+    "require": {}
+}
