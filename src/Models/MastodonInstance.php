@@ -3,6 +3,8 @@
 
     class MastodonInstance
     {
+        public string $id;
+        
         public string $name;
 
         public string $registrations;
