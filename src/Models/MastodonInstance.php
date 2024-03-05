@@ -10,7 +10,7 @@
 
         public ?string $name;
 
-        public int $registrations = 0;
+        public int $open_registrations = 0;
 
         public ?string $version;
 
