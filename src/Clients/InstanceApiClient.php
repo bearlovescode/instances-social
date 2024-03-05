@@ -36,14 +36,16 @@
          */
         public function listInstances(int $count = 20)
         {
-            $headers = array_merge($this->defaultRequestHeaders, [
-                'query' => [
-                    'count' => $count
-                ]
-            ]);
+            $filters = [
+                'count' => $count
+            ];
+            $headers = array_merge($this->defaultRequestHeaders, []);
 
             $res = $this->client->send(
-                new Request('GET', '1.0/instances/list', $headers)
+                new Request('GET', '1.0/instances/list', $headers),
+                [
+                    'query' => $filters
+                ]
             );
             return json_decode($res->getBody()->getContents());
         }
