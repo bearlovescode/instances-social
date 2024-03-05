@@ -10,7 +10,7 @@
     class InstanceApiClient {
         const BASE_URI = "https://instances.social/api/";
         protected Client $client;
-        private array $requestHeaders = [
+        private array $defaultRequestHeaders = [
             'Authorization' => null
         ];
 
@@ -33,11 +33,14 @@
          * @throws \GuzzleHttp\Exception\GuzzleException
          * @todo Implement filters.
          */
-        public function listInstances(array $filters = [])
+        public function listInstances(int $count = 20)
         {
-            $req = new Request('GET', '1.0/instances/list', [
-                'headers' => $this->requestHeaders
+            $headers = array_merge($this->defaultRequestHeaders, [
+                'query' => [
+                    'count' => $count
+                ]
             ]);
+            $req = new Request('GET', '1.0/instances/list', $headers);
             $res = $this->client->send($req);
             return json_decode($res->getBody()->getContents());
         }
@@ -55,7 +58,7 @@
 
         private function setBearer(string $token)
         {
-            $this->requestHeaders['Authorization'] = sprintf('Bearer %s', $token);
+            $this->defaultRequestHeaders['Authorization'] = sprintf('Bearer %s', $token);
         }
 
     }
