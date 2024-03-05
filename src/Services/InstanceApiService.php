@@ -19,9 +19,9 @@
          * @throws InvalidApiDataException
          * @throws \GuzzleHttp\Exception\GuzzleException
          */
-        public function listInstances(): Collection
+        public function listInstances(int $count = 20): Collection
         {
-            if (!$data = $this->client->listInstances())
+            if (!$data = $this->client->listInstances($count))
                 throw new InvalidApiDataException();
 
             $results = collect();
