@@ -9,8 +9,18 @@
     "authors": [
         {
             "name": "Nic Barr",
-            "email": "1134853+theothernic@users.noreply.github.com"
+            "email": "code@bearlovescode.com"
         }
     ],
-    "require": {}
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/bearlovescode/datamodels.git"
+        }
+    ],
+    "require": {
+        "illuminate/support": "^10.46",
+        "guzzlehttp/guzzle": "^7.8",
+        "bearlovescode/datamodels": "^1.1"
+    }
 }
