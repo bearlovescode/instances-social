@@ -10,7 +10,9 @@
     class InstanceApiClient {
         const BASE_URI = "https://instances.social/api/";
         protected Client $client;
-        private $headers = [];
+        private $requestHeaders = [
+            'Authorization' => null
+        ];
 
         public function __construct(
             private readonly ApiClientConfiguration $config
@@ -33,20 +35,9 @@
          */
         public function listInstances(array $filters = [])
         {
-            try {
-                $req = new Request('GET', '1.0/instances/list', [
-                    'headers' => $this->headers
-                ]);
-
-                $res = $this->client->send($req);
-
-                return json_decode($res->getBody()->getContents());
-            }
-
-            catch (ClientException $e)
-            {
-                throw $e;
-            }
+            $req = new Request('GET', '1.0/instances/list', $this->requestHeaders);
+            $res = $this->client->send($req);
+            return json_decode($res->getBody()->getContents());
         }
 
         /**
