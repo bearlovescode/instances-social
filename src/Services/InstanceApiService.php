@@ -25,7 +25,7 @@
                 throw new InvalidApiDataException();
 
             $results = collect();
-            foreach ($data as $record)
+            foreach ($data->instances as $record)
                 $results->push(new MastodonInstance($record));
 
             return $results;

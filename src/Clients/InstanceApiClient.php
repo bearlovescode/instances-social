@@ -23,7 +23,8 @@
             $this->setBearer($this->config->secretToken);
 
             $this->client = new Client([
-                'base_uri' => self::BASE_URI
+                'base_uri' => self::BASE_URI,
+                'user_agent' => $this->config->userAgent
             ]);
         }
 
@@ -40,8 +41,10 @@
                     'count' => $count
                 ]
             ]);
-            $req = new Request('GET', '1.0/instances/list', $headers);
-            $res = $this->client->send($req);
+
+            $res = $this->client->send(
+                new Request('GET', '1.0/instances/list', $headers)
+            );
             return json_decode($res->getBody()->getContents());
         }
 

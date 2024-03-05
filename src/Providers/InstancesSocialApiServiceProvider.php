@@ -21,6 +21,7 @@
         public function getConfiguration(): ApiClientConfiguration
         {
             return new ApiClientConfiguration([
+                'userAgent' => env('APP_NAME', 'Bearlovescode InstancesSocialApiClient'),
                 'secretToken' => env('INSTANCE_SOCIAL_SECRET')
             ]);
         }

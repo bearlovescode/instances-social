@@ -6,4 +6,5 @@
     class ApiClientConfiguration extends DataModel
     {
         public ?string $secretToken;
+        public string $userAgent;
     }
