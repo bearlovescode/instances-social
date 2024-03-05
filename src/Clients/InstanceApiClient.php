@@ -10,13 +10,15 @@
     class InstanceApiClient {
         const BASE_URI = "https://instances.social/api/";
         protected Client $client;
+        private $headers = [];
 
         public function __construct(
             private readonly ApiClientConfiguration $config
         ) {
 
-            $this->validateConfig($config);
+            $this->validateConfig($this->config);
 
+            $this->setBearer($this->config->secretToken);
 
             $this->client = new Client([
                 'base_uri' => self::BASE_URI
@@ -32,8 +34,10 @@
         public function listInstances(array $filters = [])
         {
             try {
-                $req = new Request('GET', '1.0/instances/list');
-                $req->withAddedHeader('Authorization', sprintf('Bearer %s', $this->config->secretToken));
+                $req = new Request('GET', '1.0/instances/list', [
+                    'headers' => $this->headers
+                ]);
+
                 $res = $this->client->send($req);
 
                 return json_decode($res->getBody()->getContents());
@@ -54,6 +58,11 @@
         {
             if (empty($config->secretToken))
                 throw new InvalidConfigurationException('Missing API secret token.');
+        }
+
+        private function setBearer(string $token)
+        {
+            $this->headers['Authorization'] = sprintf('Bearer %s', $token);
         }
 
     }
