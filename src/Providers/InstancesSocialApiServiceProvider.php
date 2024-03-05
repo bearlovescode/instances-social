@@ -1,9 +1,9 @@
 <?php
-    namespace Bearlovescode\InstancesSocialClient\Providers;
+    namespace Bearlovescode\InstancesSocial\Providers;
 
-    use Bearlovescode\InstancesSocialClient\Clients\InstanceApiClient;
-    use Bearlovescode\InstancesSocialClient\Models\ApiClientConfiguration;
-    use Bearlovescode\InstancesSocialClient\Services\InstanceApiService;
+    use Bearlovescode\InstancesSocial\Clients\InstanceApiClient;
+    use Bearlovescode\InstancesSocial\Models\ApiClientConfiguration;
+    use Bearlovescode\InstancesSocial\Services\InstanceApiService;
     use Illuminate\Support\ServiceProvider;
 
     class InstancesSocialApiServiceProvider extends ServiceProvider

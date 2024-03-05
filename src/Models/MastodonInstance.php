@@ -1,5 +1,5 @@
 <?php
-    namespace Bearlovescode\InstancesSocialClient\Models;
+    namespace Bearlovescode\InstancesSocial\Models;
 
     class MastodonInstance
     {

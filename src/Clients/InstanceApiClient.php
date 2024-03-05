@@ -1,8 +1,8 @@
 <?php
-    namespace Bearlovescode\InstancesSocialClient\Clients;
+    namespace Bearlovescode\InstancesSocial\Clients;
 
-    use Bearlovescode\InstancesSocialClient\Exceptions\InvalidConfigurationException;
-    use Bearlovescode\InstancesSocialClient\Models\ApiClientConfiguration;
+    use Bearlovescode\InstancesSocial\Exceptions\InvalidConfigurationException;
+    use Bearlovescode\InstancesSocial\Models\ApiClientConfiguration;
     use GuzzleHttp\Client;
     use GuzzleHttp\Exception\ClientException;
     use GuzzleHttp\Psr7\Request;

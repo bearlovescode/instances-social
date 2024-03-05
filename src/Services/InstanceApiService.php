@@ -1,7 +1,7 @@
 <?php
-    namespace Bearlovescode\InstancesSocialClient\Services;
+    namespace Bearlovescode\InstancesSocial\Services;
 
-    use Bearlovescode\InstancesSocialClient\Clients\InstanceApiClient;
+    use Bearlovescode\InstancesSocial\Clients\InstanceApiClient;
 
     class InstanceApiService
     {

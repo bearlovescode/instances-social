@@ -1,5 +1,5 @@
 <?php
-    namespace Bearlovescode\InstancesSocialClient\Exceptions;
+    namespace Bearlovescode\InstancesSocial\Exceptions;
 
     class InvalidConfigurationException extends \Exception
     {
