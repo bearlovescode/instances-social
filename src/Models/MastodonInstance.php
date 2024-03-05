@@ -1,7 +1,9 @@
 <?php
     namespace Bearlovescode\InstancesSocial\Models;
 
-    class MastodonInstance
+    use Bearlovescode\Datamodels\DataModel;
+
+    class MastodonInstance extends DataModel
     {
 
         public string $id;
